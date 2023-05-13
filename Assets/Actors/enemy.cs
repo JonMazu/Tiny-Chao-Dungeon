@@ -33,7 +33,7 @@ public class enemy : MonoBehaviour
     {
         actorName = health+"/"+maxHealth;
         floatingText.text = actorName;
-        if(health == 0){
+        if(health <= 0){
             Destroy(self);
         }
     }

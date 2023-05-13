@@ -8,11 +8,11 @@ public class actor: MonoBehaviour
     string actorName;
     //0:Swim = Defense 1:Fly = Dodge 2:Run = Turn Timer? 3:Pow = Base Damage 4:Stam = Health
     [SerializeField]
-    List<int> skillLevel; //0-99
+    public List<int> skillLevel; //0-99
     [SerializeField]
-    List<double> skillPower; //0-9999
+    public List<double> skillPower; //0-9999
     [SerializeField]
-    List<int> skillRating; //A-B-C-D
+    public List<int> skillRating; //A-B-C-D //UNUSED for now.
     [SerializeField]
     SpriteRenderer sprite;
     [SerializeField]
@@ -74,4 +74,19 @@ public class actor: MonoBehaviour
         return 2+(System.Math.Ceiling(skillPower[3]/10));
     }
     
+    public void setCharacter(string newName, List<int> newLevels, List<double> newPower){
+        this.actorName = newName;
+        this.skillLevel = newLevels;
+        this.skillPower = newPower;
+        //this.skillRating = newRating;
+    }
+    public List<int> getLevel(){
+        return this.skillLevel;
+    }
+    public List<double> getPower(){
+        return this.skillPower;
+    }
+    public string getName(){
+        return this.actorName;
+    }
 }
